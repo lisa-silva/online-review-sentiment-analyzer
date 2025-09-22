@@ -41,12 +41,7 @@ To run this application on your local machine, follow these simple steps:
 
     Clone the repository:
 
-    git clone [https://github.com/](https://github.com/)[lisa-silva]/[
-online-review-sentiment-analyzer
-].git
-    cd [
-online-review-sentiment-analyzer
-]
+    git clone [https://github.com/lisa-silva/online-review-sentiment-analyzer.git](https://github.com/lisa-silva/online-review-sentiment-analyzer.git)
 
     Install the required libraries:
 
