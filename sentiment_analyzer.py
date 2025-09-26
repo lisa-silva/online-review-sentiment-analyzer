@@ -1,85 +1,68 @@
-import streamlit as st
-from textblob import TextBlob
+# This Streamlit application performs sentiment analysis on user-provided text
 
-# --- App Configuration and Styling ---
+import streamlit as st
+import pandas as pd
+from textblob import TextBlob # Requires textblob in requirements.txt
+
+# --- Page Configuration ---
 st.set_page_config(
     page_title="Online Review Sentiment Analyzer",
-    page_icon="🤖",
-    layout="centered"
+    layout="wide"
 )
 
-# Custom CSS for a cleaner look and a light-hearted, playful feel.
-st.markdown("""
-<style>
-    .reportview-container {
-        background: #f0f2f6;
-    }
-    .main-header {
-        color: #2e8b57;
-        font-size: 2.5em;
-        text-align: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .stButton>button {
-        background-color: #4CAF50;
-        color: white;
-        font-size: 1.1em;
-        border-radius: 12px;
-        border: 2px solid #4CAF50;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-    }
-    .stButton>button:hover {
-        background-color: white;
-        color: #4CAF50;
-    }
-    .stTextArea label {
-        font-size: 1.2em;
-    }
-</style>
-""", unsafe_allow_html=True)
+st.title("💡 Online Review Sentiment Analyzer")
+st.markdown("Use this tool to analyze the emotional tone (sentiment) of any text or review.")
 
-# --- App Title and Introduction ---
-st.markdown("<h1 class='main-header'>Online Review Sentiment Analyzer</h1>", unsafe_allow_html=True)
-st.markdown("### Powered by Python & Streamlit")
-st.write(
-    "Paste any text below—a product review, a comment, or a short message—to analyze its sentiment. "
-    "The app will classify the text as positive, negative, or neutral."
-)
+# --- Analysis Function ---
 
-# --- User Input Area ---
-# The text area for the user to paste their content.
-user_text = st.text_area("Enter your text here:", height=200)
-
-# --- Sentiment Analysis and Output ---
-# Button to trigger the analysis.
-if st.button("Analyze Sentiment"):
-    if user_text:
-        # Create a TextBlob object from the user's input.
-        blob = TextBlob(user_text)
-        
-        # Get the polarity score, which ranges from -1.0 (negative) to 1.0 (positive).
-        polarity_score = blob.sentiment.polarity
-
-        # Display the result based on the polarity score.
-        if polarity_score > 0.1:
-            st.success(f"**Overall Sentiment: Positive 😊**")
-            st.write(f"_Polarity Score: {polarity_score:.2f}_")
-            st.write(
-                "The tone of this text is generally favorable and expressive of a positive emotion or opinion."
-            )
-        elif polarity_score < -0.1:
-            st.error(f"**Overall Sentiment: Negative 😠**")
-            st.write(f"_Polarity Score: {polarity_score:.2f}_")
-            st.write(
-                "The tone of this text is generally critical or unfavorable, expressing a negative emotion or opinion."
-            )
-        else:
-            st.info(f"**Overall Sentiment: Neutral 😐**")
-            st.write(f"_Polarity Score: {polarity_score:.2f}_")
-            st.write(
-                "The tone of this text is largely balanced or unemotional, showing no strong positive or negative bias."
-            )
+def analyze_sentiment(text):
+    """Calculates sentiment polarity using TextBlob."""
+    if not text:
+        return 0, "N/A"
+    
+    analysis = TextBlob(text)
+    polarity = analysis.sentiment.polarity
+    
+    if polarity > 0.1:
+        sentiment = "Positive"
+    elif polarity < -0.1:
+        sentiment = "Negative"
     else:
-        st.warning("Please enter some text to analyze!")
+        sentiment = "Neutral"
+        
+    return polarity, sentiment
+
+# --- User Interface ---
+
+# Input box for the user to paste text
+user_input = st.text_area(
+    "Paste your review or text here:",
+    height=200,
+    placeholder="e.g., This product is fantastic! I highly recommend it."
+)
+
+if user_input:
+    # Perform the analysis
+    polarity, sentiment_label = analyze_sentiment(user_input)
+    
+    st.header("Analysis Results")
+    
+    col1, col2 = st.columns(2)
+    
+    # Display the final sentiment label
+    with col1:
+        if sentiment_label == "Positive":
+            st.success(f"Sentiment: {sentiment_label} 😄")
+        elif sentiment_label == "Negative":
+            st.error(f"Sentiment: {sentiment_label} 😡")
+        else:
+            st.info(f"Sentiment: {sentiment_label} 😐")
+            
+    # Display the polarity score
+    with col2:
+        st.metric(label="Polarity Score (-1.0 to 1.0)", value=f"{polarity:.3f}")
+        st.caption("Score close to 1.0 is highly positive; score close to -1.0 is highly negative.")
+        
+    # Optional: Show a breakdown of the TextBlob output
+    st.subheader("Raw TextBlob Data")
+    st.code(TextBlob(user_input).sentiment)
