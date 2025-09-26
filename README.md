@@ -26,7 +26,7 @@ If you wish to clone this repository and run the app on your own computer, follo
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [YOUR GITHUB REPOSITORY URL HERE]
+    git clone https://online-review-sentiment-analyzer-nk3aiu9yrmkphictbmlvvd.streamlit.app/
     cd online-review-sentiment-analyzer
     ```
 2.  **Install Dependencies:**
