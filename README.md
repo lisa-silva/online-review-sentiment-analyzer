@@ -1,59 +1,39 @@
-Online Review Sentiment Analyzer
-Overview
+# 💡 Online Review Sentiment Analyzer
 
-This project is a web-based application built with Streamlit that analyzes the sentiment of any text input, such as product reviews, social media comments, or customer feedback. The application provides an immediate classification of the text as positive, negative, or neutral, along with a numerical polarity score.
+## Live Application
 
-This project was developed as a key piece of my data science and digital product design portfolio, demonstrating my ability to build and deploy a functional, data-driven application from end-to-end.
-How It Works
+This project is deployed as a live, interactive web application using **Streamlit**.
 
-The app leverages the TextBlob library, a powerful tool for natural language processing (NLP) in Python. When a user enters text and clicks "Analyze," the app performs the following steps:
+👉 [**Try the Live App Here (Your Streamlit URL)**](<PASTE YOUR STREAMLIT URL HERE>)
 
-    Tokenization: The input text is broken down into individual words or phrases.
+## Project Overview
 
-    Sentiment Calculation: The polarity of each word is analyzed to determine the overall sentiment score.
+This application is designed to quickly evaluate the emotional tone (sentiment) of any given text, such as a customer review, social media comment, or product description. Users paste text into the field, and the application instantly returns a Polarity Score and a clear "Positive," "Negative," or "Neutral" label.
 
-    Classification: The final score is used to classify the text into one of three categories:
+## Technical Skills Demonstrated
 
-        Positive: Score greater than 0.1
+This project showcases core Python proficiency in building and deploying a complete, interactive application:
 
-        Neutral: Score between -0.1 and 0.1
+* **Live Deployment:** Successfully deployed a pure Python script to **Streamlit Cloud** for global accessibility.
+* **Natural Language Processing (NLP):** Utilized the **`TextBlob`** library to perform efficient sentiment analysis (calculating polarity and subjectivity).
+* **Dependency Management:** Correctly configured the deployment environment using **`requirements.txt`** to manage external libraries (`streamlit`, `textblob`, `nltk`).
+* **User Interface (UI) Development:** Employed the **`streamlit`** library to create a clean, modern, and responsive web interface using text areas, columns, and metric display elements.
+* **Data Handling:** Implemented logical flow control to process user input and return structured analytical data.
 
-        Negative: Score less than -0.1
+## How to Run Locally
 
-Key Features
+If you wish to clone this repository and run the app on your own computer, follow these steps:
 
-    Real-time Sentiment Analysis: Get instant feedback on the emotional tone of your text.
-
-    Intuitive UI: A clean, user-friendly interface designed with Streamlit for a seamless experience.
-
-    Categorical Output: Clear classification into positive, negative, or neutral sentiment.
-
-    Polarity Score: Provides a numerical value to quantify the sentiment.
-
-Live Demo
-
-See the application in action here:
-
-Click here to view the live app on Streamlit Cloud
-Local Setup & Installation
-
-To run this application on your local machine, follow these simple steps:
-
-    Clone the repository:
-
-    git clone [https://github.com/lisa-silva/online-review-sentiment-analyzer.git](https://github.com/lisa-silva/online-review-sentiment-analyzer.git)
-
-    Install the required libraries:
-
+1.  **Clone the Repository:**
+    ```bash
+    git clone [YOUR GITHUB REPOSITORY URL HERE]
+    cd online-review-sentiment-analyzer
+    ```
+2.  **Install Dependencies:**
+    ```bash
     pip install -r requirements.txt
-
-    (Note: The requirements.txt file contains streamlit and textblob.)
-
-    Run the application:
-
+    ```
+3.  **Run the App:**
+    ```bash
     streamlit run sentiment_analyzer.py
-
-The app will automatically open in your default web browser.
-Contact
-
-If you have any questions or feedback, feel free to open an issue in this repository or connect with me via my portfolio.
+    ```
