@@ -2,7 +2,9 @@
 
 import streamlit as st
 import pandas as pd
-from textblob import TextBlob # Requires textblob in requirements.txt
+from textblob import TextBlob
+import nltk # NEW: Import NLTK library
+nltk.download('punkt', quiet=True) # NEW: Download the required data for TextBlob
 
 # --- Page Configuration ---
 st.set_page_config(
@@ -20,6 +22,7 @@ def analyze_sentiment(text):
     if not text:
         return 0, "N/A"
     
+    # We don't need to specify the source of TextBlob here, as it's a simple example.
     analysis = TextBlob(text)
     polarity = analysis.sentiment.polarity
     
