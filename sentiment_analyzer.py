@@ -4,7 +4,8 @@ import streamlit as st
 import pandas as pd
 from textblob import TextBlob
 import nltk # NEW: Import NLTK library
-nltk.download('punkt', quiet=True) # NEW: Download the required data for TextBlob
+nltk.download('punkt', quiet=True) 
+# NEW: Download the required data for TextBlob
 
 # --- Page Configuration ---
 st.set_page_config(
