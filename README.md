@@ -4,7 +4,7 @@
 
 This project is deployed as a live, interactive web application using **Streamlit**.
 
-👉 [**Try the Live App Here (Your Streamlit URL)**](<https://github.com/lisa-silva/online-review-sentiment-analyzer.git>)
+👉 [**Try the Live App Here (Your Streamlit URL)**]<https://lisa-silva-online-review-sentiment-analyzer.streamlit.app/>>
 
 ## Project Overview
 
@@ -27,7 +27,11 @@ If you wish to clone this repository and run the app on your own computer, follo
 1. **Clone the Repository:**
 
     ```bash
-    git clone [YOUR GITHUB REPOSITORY URL HERE]
+<<<<<<< HEAD
+    git clone https://github.com/lisa-silva/online-review-sentiment-analyzer.git
+=======
+    git clone https://online-review-sentiment-analyzer-nk3aiu9yrmkphictbmlvvd.streamlit.app/
+>>>>>>> f747c55397af2fe485e3eeb3127e21e37ccd85b5
     cd online-review-sentiment-analyzer
     ```
 
