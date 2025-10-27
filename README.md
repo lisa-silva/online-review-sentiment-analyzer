@@ -4,7 +4,7 @@
 
 This project is deployed as a live, interactive web application using **Streamlit**.
 
-👉 [**Try the Live App Here (Your Streamlit URL)**](<PASTE YOUR STREAMLIT URL HERE>)
+👉 [**Try the Live App Here (Your Streamlit URL)**](<https://github.com/lisa-silva/online-review-sentiment-analyzer.git>)
 
 ## Project Overview
 
@@ -24,16 +24,21 @@ This project showcases core Python proficiency in building and deploying a compl
 
 If you wish to clone this repository and run the app on your own computer, follow these steps:
 
-1.  **Clone the Repository:**
+1. **Clone the Repository:**
+
     ```bash
-    git clone [YOUR GITHUB REPOSITORY URL HERE]
+    git clone https://github.com/lisa-silva/online-review-sentiment-analyzer.git
     cd online-review-sentiment-analyzer
     ```
-2.  **Install Dependencies:**
+
+2. **Install Dependencies:**
+
     ```bash
     pip install -r requirements.txt
     ```
-3.  **Run the App:**
+
+3. **Run the App:**
+
     ```bash
     streamlit run sentiment_analyzer.py
     ```
