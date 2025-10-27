@@ -27,7 +27,7 @@ If you wish to clone this repository and run the app on your own computer, follo
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/lisa-silva/online-review-sentiment-analyzer.git
+    git clone [YOUR GITHUB REPOSITORY URL HERE]
     cd online-review-sentiment-analyzer
     ```
 
